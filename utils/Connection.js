@@ -4,11 +4,8 @@ let client = null;
 
 function redisClient() {
     if (!client) {
-        // const redisUrl = process.env.REDIS_URL;
-        // const redisPassword = process.env.REDIS_PASSWORD;
-
-        const redisUrl = "redis-16861.c212.ap-south-1-1.ec2.redns.redis-cloud.com:16861";
-        const redisPassword = "P050j96FfwGAWTlPK06orF3KotzdLyF4";
+        const redisUrl = process.env.REDIS_URL;
+        const redisPassword = process.env.REDIS_PASSWORD;
 
         console.log('Redis URL:', redisUrl);
         console.log('Redis Password:', redisPassword);
