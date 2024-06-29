@@ -1,15 +1,13 @@
 const express = require('express');
-const checkIdExistence = require('./routes/id');
+const { getRedisInstance } = require('./utils/Connection');
+const { checkIdExistence } = require('./routes/check_id');
 
 const router = express.Router();
 
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
     const id = req.params.id;
-    const result = checkIdExistence(id);
-    
-    const data = result ? { id, result } : { error: 'Not found' };
-    res.status(result ? 200 : 404).json(data);
-
+    checkIdExistence(id, res);
 });
+
 
 module.exports = router;
